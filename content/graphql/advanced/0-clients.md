@@ -30,7 +30,7 @@ Where you previously used plain HTTP (like `fetch` in Javascript or `NSURLSessio
 
 Once the server response is received and handled by the GraphQL client, the requested data somehow needs to end up in your UI. Depending on the platforms and frameworks you're developing with, there will be different approaches to how UI updates are handled in general.
 
-Taking React as an example, GraphQL clients use the concept of [higher-order components](https://facebook.github.io/react/docs/higher-order-components.html) to fetch the needed data under the hood and make it available in the `props` of your components. In general, the declarative nature of GraphQL ties in particularly well with [functional reactive programming](https://en.wikipedia.org/wiki/Functional_reactive_programming) techniques. These two form a powerful combination where a view simply declares its data dependencies and the UI is wired up with an FRP layer of your choice. 
+Taking React as an example, GraphQL clients use the concept of [higher-order components](https://legacy.reactjs.org/docs/higher-order-components.html) to fetch the needed data under the hood and make it available in the `props` of your components. In general, the declarative nature of GraphQL ties in particularly well with [functional reactive programming](https://en.wikipedia.org/wiki/Functional_reactive_programming) techniques. These two form a powerful combination where a view simply declares its data dependencies and the UI is wired up with an FRP layer of your choice. 
 
 
 ### Caching Query Results: Concepts and Strategies
