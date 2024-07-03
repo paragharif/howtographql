@@ -30,7 +30,7 @@ Where you previously used plain HTTP (like `fetch` in Javascript or `NSURLSessio
 
 Once the server response is received and handled by the GraphQL client, the requested data somehow needs to end up in your UI. Depending on the platforms and frameworks you're developing with, there will be different approaches to how UI updates are handled in general.
 
-Taking React as an example, GraphQL clients use the concept of [higher-order components](https://facebook.github.io/react/docs/higher-order-components.html) to fetch the needed data under the hood and make it available in the `props` of your components. In general, the declarative nature of GraphQL ties in particularly well with [functional reactive programming](https://en.wikipedia.org/wiki/Functional_reactive_programming) techniques. These two form a powerful combination where a view simply declares its data dependencies and the UI is wired up with an FRP layer of your choice. 
+Taking React as an example, GraphQL clients use the concept of [higher-order components](https://legacy.reactjs.org/docs/higher-order-components.html) to fetch the needed data under the hood and make it available in the `props` of your components. In general, the declarative nature of GraphQL ties in particularly well with [functional reactive programming](https://en.wikipedia.org/wiki/Functional_reactive_programming) techniques. These two form a powerful combination where a view simply declares its data dependencies and the UI is wired up with an FRP layer of your choice. 
 
 
 ### Caching Query Results: Concepts and Strategies
@@ -39,7 +39,7 @@ In the majority of applications, you'll want to maintain a cache of the data tha
 
 Generally, when caching data, the intuition is to put information that's fetched remotely into a local _store_ from where it can be retrieved later on. With GraphQL, the naive approach would be to simply put the results of GraphQL queries into the store and simply return them whenever the same query is sent. It turns out this approach is very inefficient for most applications. 
 
-A more beneficial approach is to _normalize_ the data beforehand. That means that the (potentially nested) query result gets flattened and the store will only contain individual records that can be referenced with a globally unique ID. If you want to learn more about this, the [Apollo blog](https://dev-blog.apollodata.com/the-concepts-of-graphql-bc68bd819be3) has a great write-up on the topic.
+A more beneficial approach is to _normalize_ the data beforehand. That means that the (potentially nested) query result gets flattened and the store will only contain individual records that can be referenced with a globally unique ID. If you want to learn more about this, the [Apollo blog](https://www.apollographql.com/blog/demystifying-cache-normalization) has a great write-up on the topic.
 
 
 ### Build-time Schema Validation & Optimizations
