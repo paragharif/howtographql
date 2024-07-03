@@ -267,7 +267,7 @@ Open `src/index.js` and replace the contents with the following:
 
 ```js{7-13,15-18,20-24,28,30}(path=".../hackernews-react-apollo/src/index.js")
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import './styles/index.css';
 import App from './components/App';
 
@@ -292,11 +292,13 @@ const client = new ApolloClient({
 });
 
 // 4
+const root = createRoot(document.getElementById('root'));
+
+// 5
 ReactDOM.render(
   <ApolloProvider client={client}>
     <App />
-  </ApolloProvider>,
-  document.getElementById('root')
+  </ApolloProvider>
 );
  
 
@@ -313,7 +315,8 @@ Let's take a look at what's going on in the code snippet above:
    `http://localhost:4000`.
 3. We instantiate `ApolloClient` by passing in the `httpLink` and a new instance
    of an `InMemoryCache`.
-4. Finally, we render the root component of our React app. The `App` is wrapped
+4. We create a root to display our React component in a DOM node in the browser.
+5. Finally, we render the root component of our React app. The `App` is wrapped
    with the higher-order component `ApolloProvider` that gets passed the
    `client` as a prop.
 
